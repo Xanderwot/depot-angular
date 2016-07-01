@@ -1,0 +1,34 @@
+<h1>Create!</h1>
+<form name='createForm' ng-model='productsCreate.attributes' ng-submit='productsCreate.create()'>
+  <md-input-container class="md-block">
+    <label>Title</label>
+    <input name='title' ng-model='productsCreate.attributes.title' required>
+    <div ng-messages="createForm.title.$error">
+      <div ng-message="required">This is required!</div>
+    </div>
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label>Description</label>
+    <textarea
+      name='description'
+      ng-model='productsCreate.attributes.description'
+      rows='3'
+      required>
+    </textarea>
+    <div ng-messages="createForm.description.$error">
+      <div ng-message="required">This is required!</div>
+    </div>
+  </md-input-container>
+  <md-input-container class="md-block">
+    <label>Price</label>
+    <input name='price' type='number' step="0.01" ng-model='productsCreate.attributes.price' required>
+    <div ng-messages="createForm.price.$error">
+      <div ng-message="required">This is required!</div>
+      <div ng-message="number">Not a number!</div>
+    </div>
+  </md-input-container>
+  <md-content>
+    <md-button type="submit">Create</md-button>
+    <button class="md-button" type="reset" ui-sref='products'>Cancel</button>
+  </md-content>
+</form>

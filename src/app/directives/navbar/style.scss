@@ -1,0 +1,13 @@
+section.navbar {
+  height: 100%;
+
+  md-toolbar.navbar {
+    min-height: 100%;
+
+    h1.md-toolbar-tools {
+      text-align: center;
+      display: block;
+      padding-top: 1em;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<section layout="row" class="navbar" flex>
+  <md-sidenav
+      class="md-sidenav-left"
+      md-component-id="left"
+      md-is-locked-open="$mdMedia('gt-md')"
+      md-disable-backdrop
+      md-whiteframe="4">
+    <md-toolbar class="md-theme-indigo navbar">
+      <h1 class="md-toolbar-tools">Angular Depot</h1>
+      <md-button ui-sref='home'>Home</md-button>
+      <md-button ui-sref='products'>Products</md-button>
+      <md-button>Dummy1</md-button>
+      <md-button>Dummy2</md-button>
+    </md-toolbar>
+  </md-sidenav>
+  <md-content class="main-container" flex layout-padding>
+    <ui-view></ui-view>
+  </md-content>
+</section>
