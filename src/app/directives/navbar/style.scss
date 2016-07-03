@@ -1,6 +1,10 @@
 section.navbar {
   height: 100%;
 
+  md-sidenav.md-sidenav-left {
+    width: 17%;
+  }
+
   md-toolbar.navbar {
     min-height: 100%;
 

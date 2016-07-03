@@ -20,7 +20,7 @@ class InfloaderDirective {
   // }
 
   link(scope, element, attrs) {
-    let container = angular.element(document.querySelector(`.${scope.containerClass}`))
+    let container = angular.element(document.querySelector(`.${scope.containerClass}`));
     container.on('scroll', () => {
       let top = element[0].getBoundingClientRect().top;
       let containerBottom = container[0].getBoundingClientRect().bottom;

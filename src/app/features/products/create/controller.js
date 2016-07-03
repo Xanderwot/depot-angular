@@ -1,15 +1,20 @@
 export default class ProductsCreateController {
-  constructor(productsStore, $state) {
+  constructor(productsStore, $mdDialog) {
     this.productsStore = productsStore;
-    this.state = $state;
+    this.dialog = $mdDialog;
   }
 
   create() {
-    this.productsStore.create(this.attributes).then((resp) => {
-      this.state.go('products');
-      // Add message here
-    }).catch((err) => {
-      console.log(err);
-    });
+    console.log(this.attributes);
+    // this.productsStore.create(this.attributes).then((resp) => {
+    //   this.dialog.hide(resp);
+    //   // Add message here
+    // }).catch((err) => {
+    //   console.log(err);
+    // });
+  }
+
+  cancel() {
+    this.dialog.cancel();
   }
 }

@@ -5,6 +5,8 @@ import ngmaterial from 'angular-material';
 import 'lodash';
 import 'restangular';
 import ngmessages from 'angular-messages';
+import ngmdicons from 'angular-material-icons';
+import 'lf-ng-md-file-input';
 
 // Routing
 import routing from './app.config';
@@ -13,11 +15,11 @@ import restangularConfig from './restangular.config';
 // Styles
 import '../style/angular-material.css';
 import '../style/app.css';
+import '../style/lf-ng-md-file-input.css'
 
 // Modules
 import home from './features/home/index';
 import productsList from './features/products/list/index';
-import productsCreate from './features/products/create/index'
 
 //Sidenav directive
 import dpnavbar from './directives/navbar/directive';
@@ -27,12 +29,13 @@ const MODULE_NAME = 'app';
 angular.module(MODULE_NAME,
   [
     'restangular',
+    ngmdicons,
+    ngmaterial,
     ngmessages,
     uirouter,
-    ngmaterial,
+    'lfNgMdFileInput',
     home,
     productsList,
-    productsCreate,
     dpnavbar
   ])
   .config(routing)

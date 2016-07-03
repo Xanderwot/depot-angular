@@ -1,11 +1,12 @@
 <md-content layout-gt-sm="row" layout-padding flex-gt-sm="50">
   <h4 class="title" flex>{{productsList.pageTitle}}</h4>
-  <button class="md-button" ui-sref="products_new" flex>New</button>
+  <button class="md-button" ng-click="productsList.showCreateDialog()" flex>New</button>
 </md-content>
 <div flex-gt-sm="50" flex>
   <md-content>
     <md-list flex>
       <md-list-item class="md-3-line" ng-repeat="product in productsList.products" ng-click="null">
+        <img ng-src="{{product.attachments[0].thumb}}" class="md-avatar" alt="{{product.title}}" />
         <div class="md-list-item-text" layout="column">
           <h3>{{product.title}}</h3>
           <h4>{{product.description}}</h4>
