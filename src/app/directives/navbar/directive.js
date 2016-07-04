@@ -4,9 +4,9 @@ import './style.scss';
 
 class NavbarDirective {
   constructor() {
-    this.restrict = 'E'
+    this.restrict = 'E';
     this.template = template;
-    this.scope = {}
+    this.scope = {};
   }
 }
 

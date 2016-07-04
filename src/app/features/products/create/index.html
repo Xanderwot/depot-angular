@@ -4,12 +4,12 @@
       <h2>Create Product</h2>
       <span flex></span>
       <md-button class="md-icon-button" ng-click="productsCreate.cancel()">
-        <ng-md-icon icon="close" style="fill: #fff"></ng-md-icon>
+        <md-icon>close</md-icon>
       </md-button>
     </div>
   </md-toolbar>
   <md-dialog-content>
-    <form name='createForm' ng-model='productsCreate.attributes' ng-submit='productsCreate.create()'>
+    <form name='createForm' class='product-create' ng-model='productsCreate.attributes' ng-submit='productsCreate.create()'>
       <md-input-container class="md-block">
         <label>Title</label>
         <input name='title' ng-model='productsCreate.attributes.title' required>
@@ -38,8 +38,9 @@
         </div>
       </md-input-container>
       <lf-ng-md-file-input
-        lf-files='productsCreate.attributes.files'
-        lf-browse-label="Browse..."
+        lf-files='productsCreate.files'
+        lf-browse-label="Browse"
+        lf-drag-and-drop-label="Drag and Drop images here!"
         multiple
         drag preview>
       </lf-ng-md-file-input>

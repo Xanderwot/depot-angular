@@ -10,7 +10,12 @@ class ProductsStore {
   }
 
   create(attributes) {
-    return this.restangular.all('products').post(attributes);
+    return this.restangular.all('products').withHttpConfig({transformRequest: angular.identity})
+              .customPOST(attributes, undefined, undefined, {'Content-Type': undefined});
+  }
+
+  search(q, page) {
+    return this.restangular.all('products').customGET('search', {q: q, page: (page || 1)});
   }
 }
 

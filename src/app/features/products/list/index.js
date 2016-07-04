@@ -6,11 +6,11 @@ import ProductsListController from './controller';
 import productsStore from '../../../services/productsStore.service';
 
 import infloader from '../../../directives/infloader/directive';
-import fileinput from '../../../directives/fileinput/directive';
+import dpswiper from '../../../directives/dpSwiper/directive';
 
 import './style.scss';
 
-export default angular.module('app.productsList', [uirouter, productsStore, infloader, fileinput])
+export default angular.module('app.productsList', [uirouter, productsStore, infloader, dpswiper])
   .config(routing)
   .controller('ProductsListController', ProductsListController)
   .name;

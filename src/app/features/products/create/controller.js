@@ -5,13 +5,18 @@ export default class ProductsCreateController {
   }
 
   create() {
-    console.log(this.attributes);
-    // this.productsStore.create(this.attributes).then((resp) => {
-    //   this.dialog.hide(resp);
-    //   // Add message here
-    // }).catch((err) => {
-    //   console.log(err);
-    // });
+    let formData = new FormData();
+    _.map(this.attributes, (v, k) => {
+      formData.append(k, v);
+    });
+    angular.forEach(this.files, (file) => {
+      formData.append('attachments_attributes[][file]', file.lfFile);
+    });
+    this.productsStore.create(formData).then((resp) => {
+      this.dialog.hide(resp);
+    }).catch((err) => {
+      console.log(err);
+    });
   }
 
   cancel() {
