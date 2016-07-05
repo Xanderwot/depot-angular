@@ -15,3 +15,12 @@ md-dialog.create-product {
 md-dialog.product-images {
   width: 50%;
 }
+
+div.product-card {
+  display: inline-block;
+  float: left;
+
+  img.product-image {
+    width: 100%;
+  }
+}

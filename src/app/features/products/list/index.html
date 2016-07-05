@@ -1,8 +1,8 @@
-<md-content layout-gt-sm="row" layout-padding flex-gt-sm="50">
+<md-content layout-gt-sm="row" layout-padding flex>
   <h4 class="title" flex>{{productsList.pageTitle}}</h4>
   <button class="md-button" ng-click="productsList.showCreateDialog()" flex>New</button>
 </md-content>
-<md-content layout-gt-sm="row" layout-padding flex-gt-sm="50">
+<md-content layout-gt-sm="row" layout-padding flex>
   <md-input-container class="md-block" flex='grow'>
     <label>Search</label>
     <input type='text'
@@ -10,44 +10,38 @@
       ng-change='productsList.search(productsList.searchQuery, 1)'/>
   </md-input-container>
 </md-content>
-<div flex-gt-sm="50" flex>
-  <md-content>
-    <md-list flex>
-      <md-list-item class="md-3-line" ng-repeat="product in productsList.products" ng-click="null">
-        <img ng-src="{{product.attachments[0].thumb}}" class="md-avatar" alt="{{product.title}}" />
-        <div class="md-list-item-text" layout="column">
-          <h3>{{product.title}}</h3>
-          <h4>{{product.description}}</h4>
-          <p>$ {{product.price}}</p>
+<md-content class="md-padding" layout-wrap>
+  <div class="product-card" flex-xs flex-gt-xs="30" ng-repeat="product in productsList.products">
+    <md-card md-theme-watch>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-body-2">{{product.title}}</span>
+          <span class="md-body-1">{{product.description | limitTo: 20}}{{product.description.length > 20 ? '...' : ''}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content layout="row" layout-align="space-between">
+        <div class="md-media-xl card-media">
+          <img ng-src="{{product.attachments[0].middle}}" class="product-image" alt="{{product.title}}" />
         </div>
-        <md-fab-toolbar md-direction="right">
-          <md-fab-trigger class="align-with-text">
-            <md-button aria-label="menu" class="md-fab md-primary">
-              <md-icon>menu</md-icon>
-            </md-button>
-          </md-fab-trigger>
-          <md-toolbar>
-            <md-fab-actions class="md-toolbar-tools">
-              <md-button aria-label="comment" class="md-icon-button">
-                <md-icon>comment</md-icon>
-              </md-button>
-              <md-button aria-label="label" class="md-icon-button">
-                <md-icon>label</md-icon>
-              </md-button>
-              <md-button aria-label="photo" class="md-icon-button" ng-click="productsList.showImages(product)">
-                <md-icon>photo</md-icon>
-              </md-button>
-            </md-fab-actions>
-          </md-toolbar>
-        </md-fab-toolbar>
-      </md-list-item>
-    </md-list>
-  </md-content>
-  <dp-infloader
-    container-class='main-container'
-    page='productsList.page'
-    total='productsList.total'
-    search-query='productsList.searchQuery'
-    load-func='productsList.isSearch ? productsList.search(q, page) : productsList.loadProducts(page)'>
-  </dp-infloader>
-</div>
+        <md-card-actions layout="column">
+          <md-button class="md-icon-button" aria-label="Favorite">
+            <md-icon>favorite</md-icon>
+          </md-button>
+          <md-button class="md-icon-button" aria-label="Settings">
+            <md-icon>menu</md-icon>
+          </md-button>
+          <md-button class="md-icon-button" ng-click="productsList.showImages(product)" aria-label="Images">
+            <md-icon>photo</md-icon>
+          </md-button>
+        </md-card-actions>
+      </md-card-content>
+    </md-card>
+  </div>
+</md-content>
+<dp-infloader
+  container-class='main-container'
+  page='productsList.page'
+  total='productsList.total'
+  search-query='productsList.searchQuery'
+  load-func='productsList.isSearch ? productsList.search(q, page) : productsList.loadProducts(page)'>
+</dp-infloader>
